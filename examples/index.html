@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>yh-feedback 示例</title>
+  <link rel="stylesheet" href="../dist/yh-feedback.css" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 40px 24px;
+      background: #f5f6f8;
+      color: #1d2129;
+    }
+    .box {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e5e6eb;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    h1 { margin: 0 0 8px; font-size: 22px; }
+    p { margin: 0 0 20px; color: #86909c; font-size: 14px; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; }
+    button {
+      height: 36px;
+      padding: 0 14px;
+      border-radius: 6px;
+      border: 1px solid #c9cdd4;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button.primary { background: #165dff; border-color: #165dff; color: #fff; }
+    button.danger { background: #f53f3f; border-color: #f53f3f; color: #fff; }
+    code { background: #f2f3f5; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>yh-feedback</h1>
+    <p>分类：<code>UI / Feedback</code> · Confirm Modal + Toast · 零依赖</p>
+    <div class="row">
+      <button class="primary" id="btn-toast-ok">Toast 成功</button>
+      <button id="btn-toast-err">Toast 失败</button>
+      <button id="btn-toast-warn">Toast 警告</button>
+      <button class="danger" id="btn-confirm">危险确认 Modal</button>
+    </div>
+  </div>
+  <script src="../dist/yh-feedback.js"></script>
+  <script>
+    document.getElementById('btn-toast-ok').onclick = function () {
+      YhFeedback.toast('保存成功', 'success');
+    };
+    document.getElementById('btn-toast-err').onclick = function () {
+      YhFeedback.toast('请求失败', 'error');
+    };
+    document.getElementById('btn-toast-warn').onclick = function () {
+      YhFeedback.toast('请先填写必填项', 'warn');
+    };
+    document.getElementById('btn-confirm').onclick = async function () {
+      var ok = await YhFeedback.confirm({
+        title: '清空拦截记录',
+        content: '确定清空全部拦截记录？此操作不可恢复。',
+        okText: '清空',
+        cancelText: '取消',
+        danger: true
+      });
+      if (ok) YhFeedback.toast('已清空', 'success');
+      else YhFeedback.toast('已取消', 'info');
+    };
+  </script>
+</body>
+</html>
