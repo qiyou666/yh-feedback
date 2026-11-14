@@ -1,0 +1,32 @@
+{
+  "name": "yh-feedback",
+  "version": "1.0.0",
+  "description": "Lightweight Confirm Modal + Toast feedback UI (vanilla JS, zero deps)",
+  "keywords": [
+    "ui",
+    "feedback",
+    "modal",
+    "confirm-dialog",
+    "toast",
+    "vanilla-js",
+    "yanhuo"
+  ],
+  "license": "MIT",
+  "main": "dist/yh-feedback.js",
+  "style": "dist/yh-feedback.css",
+  "files": [
+    "dist",
+    "examples",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiyou666/yh-feedback.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qiyou666/yh-feedback/issues"
+  },
+  "homepage": "https://github.com/qiyou666/yh-feedback#readme"
+}
